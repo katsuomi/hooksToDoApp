@@ -53,10 +53,10 @@ const TaskForm = () => {
         <Button variant="contained" color="primary" onClick={addTask} disabled={unCreatable}>
           Create Task
         </Button>
-        <Button variant="contained" color="secondary" onClick={deleteAllTasks} disabled={state.tasks.length === 0} style={{marginLeft: "20px"}}>
-          Delete All Tasks
-        </Button>
       </form>
+      <Button variant="contained" color="secondary" onClick={deleteAllTasks} disabled={state.tasks.length === 0} style={{marginLeft: "20px"}}>
+        Delete All Tasks
+      </Button>
     </>
   )
 }
