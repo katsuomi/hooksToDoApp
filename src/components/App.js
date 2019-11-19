@@ -1,4 +1,5 @@
 import React, { useReducer,useEffect } from 'react'
+import Grid from '@material-ui/core/Grid';
 import TaskForm from './TaskForm'
 import Tasks from './Tasks'
 import reducer from '../reducers'
@@ -17,10 +18,14 @@ const App = () => {
 
   return (
     <AppContext.Provider value={{state,dispatch}} >
-      <div>
-        <TaskForm />
-        <Tasks />
-      </div>
+      <Grid container>
+        <Grid item xs={12} md={3}></Grid>
+        <Grid item xs={12} md={3}>        
+          <TaskForm />
+          <Tasks />
+        </Grid>
+        <Grid item xs={12} md={3}></Grid>
+      </Grid>
     </AppContext.Provider>
   )
 }
