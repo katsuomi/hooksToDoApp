@@ -4,6 +4,8 @@ import {
   DELETE_ALL_TASKS,
 } from '../actions'
 import AppContext from '../contexts/AppContext'
+import TextField from '@material-ui/core/TextField'
+import Button from '@material-ui/core/Button'
 
 const TaskForm = () => {
   const {state,dispatch} = useContext(AppContext)
@@ -32,20 +34,28 @@ const TaskForm = () => {
   const unCreatable = title === '' || description === ''
   return (
     <>
-      <h4>ToDo作成フォーム</h4>
+      <h4>Create Task </h4>
       <form>
-        <div className="form-group">
-          <label htmlFor="formTaskTitle">タイトル</label>
-          <input className="form-control" id="formTaskTitle" value={title} onChange={e => setTitle(e.target.value)}/>
-        </div>
-
-        <div className="form-group">
-          <label htmlFor="formTaskDescription">詳細</label>
-          <textarea className="form-control" id="formTaskDescription" value={description} onChange={e => setDescription(e.target.value)}/>
-        </div>
-
-        <button className="btn btn-primary" onClick={addTask} disabled={unCreatable}>タスクを作成する</button>
-        <button className="btn btn-danger" onClick={deleteAllTasks} disabled={state.tasks.length === 0}>全てのタスクを削除する</button>
+        <TextField
+          label="title"
+          margin="normal"
+          value={title} 
+          onChange={e => setTitle(e.target.value)}
+        />
+        <br/>
+        <TextField
+          label="description"
+          margin="normal"
+          value={description}
+          onChange={e => setDescription(e.target.value)}
+        />
+        <br/>
+        <Button variant="contained" color="primary" onClick={addTask} disabled={unCreatable}>
+          Create Task
+        </Button>
+        <Button variant="contained" color="secondary" onClick={deleteAllTasks} disabled={state.tasks.length === 0} style={{marginLeft: "20px"}}>
+          Delete All Tasks
+        </Button>
       </form>
     </>
   )
