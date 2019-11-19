@@ -41,6 +41,7 @@ const TaskForm = () => {
           margin="normal"
           value={title} 
           onChange={e => setTitle(e.target.value)}
+          style={{width: "400px"}}
         />
         <br/>
         <TextField
@@ -48,13 +49,15 @@ const TaskForm = () => {
           margin="normal"
           value={description}
           onChange={e => setDescription(e.target.value)}
+          style={{width: "400px"}}
         />
         <br/>
-        <Button variant="contained" color="primary" onClick={addTask} disabled={unCreatable}>
+        <Button variant="contained" color="primary" onClick={addTask} disabled={unCreatable} style={{width: "400px"}}>
           Create Task
         </Button>
       </form>
-      <Button variant="contained" color="secondary" onClick={deleteAllTasks} disabled={state.tasks.length === 0} style={{marginLeft: "20px"}}>
+      <br/>
+      <Button variant="contained" color="secondary" onClick={deleteAllTasks} disabled={state.tasks.length === 0} style={{width: "400px"}}>
         Delete All Tasks
       </Button>
     </>
